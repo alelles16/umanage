@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mb-16 {
+  margin-bottom: 16px !important;
+}
+
+hr {
+  border: 0.5px solid #e4e4e4;
+  margin: 24px 0;
+}

@@ -1,0 +1,11 @@
+.container {
+  padding: 16px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.wrap-content .card {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 16px;
+}

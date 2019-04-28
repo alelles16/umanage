@@ -1,0 +1,89 @@
+<form nz-form [formGroup]="registerForm" class="register-form" (ngSubmit)="submitForm()">
+  <h3>Register now!</h3>
+  <p>Info...</p>
+
+  <hr>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="name" id="name" />
+      <nz-form-explain *ngIf="registerForm.get('name')?.dirty && registerForm.get('name')?.errors">
+        The input is not valid name!
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Lastname</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="lastname" id="lastname" />
+      <nz-form-explain *ngIf="registerForm.get('lastname')?.dirty && registerForm.get('lastname')?.errors">
+        The input is not valid lastname!
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="identification">Identification</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="identification" id="identification" type="number" />
+      <nz-form-explain *ngIf="registerForm.get('identification')?.dirty && registerForm.get('identification')?.errors">
+        The input is not valid identification!
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">Email</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="email" id="email" type="email" />
+      <nz-form-explain *ngIf="registerForm.get('email')?.dirty && registerForm.get('email')?.errors">
+        The input is not valid email!
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="registerForm.controls['phoneNumber']">
+      <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+        <ng-template #addOnBeforeTemplate>
+          <nz-select formControlName="phoneNumberPrefix" style="width: 70px;">
+            <nz-option nzLabel="+57" nzValue="+57" selected></nz-option>
+          </nz-select>
+        </ng-template>
+        <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+      </nz-input-group>
+      <nz-form-explain *ngIf="registerForm.get('phoneNumber')?.dirty && registerForm.get('phoneNumber')?.errors">Please
+        input your phone number!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="address">Address</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="address" id="address" type="text" />
+      <nz-form-explain *ngIf="registerForm.get('address')?.dirty && registerForm.get('address')?.errors">
+        The input is not valid address!
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Birth date</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-date-picker formControlName="birthDate"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <hr>
+
+  <nz-form-item nz-row class="m-0">
+    <nz-form-control [nzSpan]="14">
+      <button nz-button nzType="primary" [disabled]="!registerForm.valid">Register</button>
+      Or
+      <a [routerLink]="['/login']">Log in!</a>
+    </nz-form-control>
+  </nz-form-item>
+</form>
